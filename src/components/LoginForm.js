@@ -4,7 +4,24 @@ class LoginForm extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
+
+  username = e => {
+    this.setState({username: e.target.value})
+  }
+
+  password = e => {
+    this.setState({password: e.target.value})
+  }
+
+  submit = e => {
+    e.preventDefault()
+    if (this.state.username && this.state.password)
+      this.props.handleLogin(this.state)
   }
 
   render() {
